@@ -298,7 +298,7 @@ angular.module('datePicker').factory('datePickerUtils', function(){
         date.setDate(-5);
       } else {
         // day is not sunday, let's get back to the start of the week
-        date.setDate(date.getDate() - (date.getDay()));
+        date.setDate(date.getDate() - (date.getDay() - 1));
       }
       if (date.getDate() === 1) {
         // day is monday, let's get back to the previous week
@@ -336,7 +336,7 @@ angular.module('datePicker').factory('datePickerUtils', function(){
     getDaysOfWeek : function(date) {
       date = new Date(date || new Date());
       date = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-      date.setDate(date.getDate() - (date.getDay() - 1));
+      date.setDate(date.getDate() - (date.getDay() - 2));
       truncateToDay(date);
       var days = [];
       for (var i = 0; i < 7; i++) {
